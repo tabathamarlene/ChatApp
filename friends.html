@@ -7,31 +7,48 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div>
-        <h1>Friends</h1>
-        <a href="Logout.html"> Logout</a>
+    <div class="friends">
+
+        <h1 class="left">Friends</h1>
+
+        <a class="text" href="Logout.html">&lt; Logout</a>    
         |  
-        <a href="Settings.html">Settings</a>
+        <a class="text" href="Settings.html">Settings</a>
+
         <hr>
+
+        <div class="friendlist">
         <ul>
-            <li><a href="Tom3.html">Tom (3)</a></li>
-            <li><a href="Marvin1.html">Marvin (1)</a></li>
-            <li><a href="Tick.html">Tick</a></li>
-            <li><a href="Trick.html">Trick</a></li>
+        <div class="requestnumber">
+           <li><a class="listitems" href="Tom3.html">Tom</a></li>
+           <div><p class="pnumber">3</p></div>
+        </div>
+        <div class="requestnumber">
+            <li><a class="listitems" href="Marvin.html">Marvin</a></li>
+            <div><p class="pnumber">1</p></div>
+         </div>
+            <li><a class="listitems" href="Tick.html">Tick</a></li>
+            <li><a class="listitems" href="Trick.html">Trick</a></li>
         </ul>
+    </div>
 
         <hr>
 
-        <h1>New Requests</h1>
+        <h2 class="left">New Requests</h1>
         <ol>
-            <li>Friend Request from Track <button>Accept</button> <button>Reject</button></li>
+            <li class="listitems">Friend Request from <span class="bold"> Track </span>
+                <button class="greybuttonround" >Accept</button> 
+                <button class="greybuttonround" >Reject</button></li>
            
         </ol>
 
         <hr>
 
-        <form>
-            <input type="text" name="search" placeholder="Add Friend to List"><button>Add</button>
+        <form >
+            <div class="bar">
+            <input class ="actionbar" type="text" name="search" placeholder="Add Friend to List">
+            <div><button class="greybuttonroundaction">Add</button></div>
+            </div>
         </form>
            
     </div>
