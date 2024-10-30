@@ -31,7 +31,7 @@
     src: url('/fontss/jost-v15-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
 body {
-    max-width: 900px;
+    
     background-color: #F4F5F5;
     
 }
@@ -40,6 +40,7 @@ body {
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    width: 900px;
 }
 
 .images {
@@ -54,41 +55,41 @@ h1.center {
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     text-align: center;
-    font-size: 35px;
+    font-size: 2.5em;
 }
 
 h1.left {
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     text-align: left;
-    font-size: 35px;
+    font-size: 2.5em;
 }
 
 h2.left {
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     text-align: left;
-    font-size: 30px;
+    font-size: 1.75em;
 }
 
 
 p.pcenter{
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     text-align: center;
 }
 
 p.pnormal{
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 a.center {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     display: block;
     text-align: center;
     text-decoration: none;
@@ -96,14 +97,30 @@ a.center {
  
 }
 
+.text:hover {
+    text-decoration: underline;
+ }
+
 a:hover {
    text-decoration: underline;
+}
+
+a.logout:hover {
+    color: rgb(255, 0, 0);
+    text-decoration: underline;
+}
+
+a.logout {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    text-decoration: none;
+    color: blue;
 }
 
 div.form {
     display: flex;
     margin: auto;
-   max-width: 600px;
     flex-direction: column;
     /*align-items: center;*/
     font-family: 'Jost', sans-serif;
@@ -119,7 +136,7 @@ fieldset {
 }
 
 .formcontent {
-    margin-left: 100px;
+    margin-left: 25%;
     margin-top: 8px;
     margin-bottom: 8px;
 
@@ -130,7 +147,7 @@ fieldset {
 label {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     text-align: right;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -142,7 +159,7 @@ label {
 input {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     margin-right: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -155,7 +172,7 @@ input {
 .greybutton {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 10px;
@@ -169,10 +186,10 @@ input {
     cursor: pointer;
 }
 
-.greybuttonround {
+.acceptbutton {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 10px;
@@ -188,10 +205,37 @@ input {
 
 }
 
+.acceptbutton:hover {
+    background-color: green;
+}
+
+.rejectbutton {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 2px solid gray;
+    background-color: grey;
+    border-radius: 5px;
+    color: white;
+    width: 75px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+.rejectbutton:hover {
+    background-color: red;
+}
+
 .greybuttonroundaction {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     margin-left: 2px;
     margin-right: 2px;
     margin-bottom: 5px;
@@ -211,7 +255,7 @@ input {
 .bluebutton {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 10px;
@@ -233,12 +277,14 @@ justify-content: center;
 .friends {
     margin-top: 30px;
     margin-left: 10px;
+    margin-right: 10px;
+    width: 900px;
 }
 
 a.text {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     text-decoration: none;
     color: blue;
 
@@ -267,7 +313,7 @@ ul {
 li {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1em;
     margin-top: 15px;
     margin-bottom: 15px;
     
@@ -276,6 +322,10 @@ li {
     a.listitems {
        text-decoration: none;
          color: black;
+    }
+
+    a.listitems:hover {
+        text-decoration: underline;
     }
 
     .requestnumber {
@@ -292,7 +342,7 @@ li {
     p.pnumber {
         font-family: 'Jost', sans-serif;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 1em;
         background: #007BFF;
         padding-top: 2px;
         padding-bottom: 2px;
@@ -310,7 +360,7 @@ li {
     .actionbar {
         font-family: 'Jost', sans-serif;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 1em;
         margin-right: 5px;
        
         padding-left: 15px;
@@ -327,6 +377,14 @@ li {
         justify-content: space-between;
         align-items: center;
     }
+
+    @media only screen and (max-width: 1024px) {
+        body, .friends, .friendlist, .actionbar, hr, .content, .form, .formcontent, fieldset   {
+            display: block;
+           width: 95%;
+        }
+    }
+   
 
 
    
