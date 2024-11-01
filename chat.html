@@ -1,26 +1,37 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <div class="friends">
 
-<html lang = "en">
+        <h1 class="left">Chat with Tom</h1>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chat</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+        <a href="friends.html" class="logout"> &lt; Back</a> |
+        <a href="friends.html" class="special">Remove Friend</a>
 
-        <body>
-            <div>
-        <h1>Chat with Tom</h1>
-        <a href="friends.html"> Back </a>
-        |  
-        <a href="friends.html"> Remove Friend </a>
-        <p> Tom: Hallo, Welt! </p>
-        <p> Jerry: Wie gehts? </p>
+        <hr>
+
+        <div class="friendlist">
+            <ul>
+                <li class="listitems"><span class="bold">Tom:</span> Hallo, Welt!</li>
+                <li class="listitems"><span class="bold">Jerry:</span> Wie geht's?</li>
+            </ul>
+        </div>
+
+        <hr>
+
         <form>
-        <input type="message" name="message" placeholder="New Massage">
-        <button>Send</button>
-        </form>
+            <div class="bar">
+                <input class="actionbar" type="text" name="message" placeholder="New Message">
+                <div><button class="greybuttonroundaction">Send</button></div>
             </div>
-        </body>
+        </form>
+    </div>
+</body>
 </html>

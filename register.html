@@ -6,24 +6,36 @@
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-    <body>
-    <div>
-        <img src= "images/user.png">
-        <h1>Register yourself</h1>
-        <form>
+<body>
+    <div class="content">
+        <img src="images/user.png" class="images" alt="User Icon">
+        <h1 class="center">Register yourself</h1>
+
+        <form class="form">
             <fieldset>
-            <legend>Register</legend>
-            <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Username"> <br>
-            <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Password"> <br>
-            <label for="password2">Confirm Password</label>
-            <input type="password" name="password2" placeholder="Confirm Password">
-        </fieldset>
-            <button> <a href="friends.html">Cancel</a> </button>
-       
-        <button> <a href="Login.html">Create Account</a> </button>
+                <legend>Register</legend>
+                
+                <div class="formcontent">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username">
+                </div>
+                
+                <div class="formcontent">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="formcontent">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" id="password2" name="password2" placeholder="Confirm Password">
+                </div>
+            </fieldset>
+
+            <div class="extrabuttons">
+                <button class="greyroundbutton"><a href="friends.html" class="buttontext">Cancel</a></button>
+                <button class="blueroundbutton"><a href="Login.html" class="buttontext">Create Account</a></button>
+            </div>
         </form>
     </div>
-    </body>
- </html>
+</body>
+</html>

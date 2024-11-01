@@ -5,37 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
-    <div class="content" >
-    <img src="images/chat.png" class="images">
-    <h1 class="center">Please sign in</h1>
+    <div class="content">
+        <img src="images/chat.png" class="images" alt="Chat Icon">
+        <h1 class="center">Please sign in</h1>
 
-    <div class="form">
-    <form>
-        <fieldset>
-        <legend>Login</legend>
-        <div class="formcontent">
-           <label for="username">Username</label>
-           <input type="text" name="username" placeholder="Username" required><br>
-           <label for="password">Password</label>
-           <input type="password" name="password" placeholder="Password" required><br>
-        </div>
-        </fieldset>
-        
-    </div>  
-    <div class="centerbuttons">
-        <button class="greybutton">Register</button>
-        <button class="bluebutton" type="submit">Login</button>
-    </div>
+        <form class="form">
+            <fieldset>
+                <legend>Login</legend>
+                <div class="formcontent">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required><br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required><br>
+                </div>
+            </fieldset>
+            
+            <div class="extrabuttons">
+                <button class="greyroundbutton"><a href="register.html" class="buttontext">Register</a></button>
+                <button class="blueroundbutton" type="submit">Login</button>
+            </div>
         </form>
-
-
-           
-
     </div>
-
-    
 </body>
 </html>
