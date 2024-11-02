@@ -100,11 +100,11 @@ a.center {
     color: blue;
 }
 
-a.logout {
+a.logout, a.text {
     color: blue;
 }
 
-a.logout:hover, a.text:hover, a.listitems:hover {
+a.logout:hover, a.text:hover, a.listitems:hover, a.center:hover {
     text-decoration: underline;
 }
 
@@ -166,7 +166,7 @@ input {
 }
 
 /* Buttons */
-.greybutton, .acceptbutton, .rejectbutton, .bluebutton, .greybuttonroundaction {
+.greybutton, .acceptbutton, .rejectbutton, .bluebutton {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 1em;
@@ -177,11 +177,25 @@ input {
     text-align: center;
 }
 
+.greybuttonroundaction {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    margin: 2px 2px 5px;
+    padding: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: white;
+    cursor: pointer;
+}
+
 .greybutton, .acceptbutton, .rejectbutton, .greybuttonroundaction {
     background-color: grey;
     border: 2px solid grey;
     border-radius: 5px;
 }
+
+
 
 .bluebutton {
     background-color: #007BFF;
@@ -309,7 +323,7 @@ hr {
     color: white;
 }
 
-.greyroundbutton:hover {
+.greyroundbutton:hover,.greybuttonroundaction:hover {
     background-color: darkgrey;
 }
 
