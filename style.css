@@ -216,8 +216,7 @@ input {
 }
 
 /* Freundeliste und andere Listen */
-.friends, .friendlist {
-    margin: 30px 10px;
+.friendlist {
     width: 900px;
 }
 
