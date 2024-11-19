@@ -48,10 +48,16 @@
 
         <form>
             <div class="bar">
-                <input class="actionbar" type="text" name="search" placeholder="Add Friend to List">
-                <div><button class="greybuttonroundaction">Add</button></div>
+                <input class="actionbar" placeholder="Add Friend to List" name="friendRequestName" id="friend-request-name" list="friend-selector">
+                 <datalist id="friend-selector"> 
+                    <option>Tom</option> 
+                    <option>Jerry</option>
+                    <!-- weitere Einträge -->
+                    </datalist>
+                <button type="button" class="greybuttonroundaction">Add</button>
             </div>
         </form>
     </div>
+    <script src="main.js"></script> 
 </body>
 </html>
