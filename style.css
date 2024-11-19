@@ -226,10 +226,18 @@ input {
     border: 2px solid lightgrey;
 }
 
-ul {
+.friendlist ul {
     list-style-type: none;
     padding: 0;
-    margin-left: 12px;
+    margin: 0;
+}
+
+.friendlist li {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 li {
@@ -256,6 +264,7 @@ p.pnumber {
     padding: 2px 5px;
     color: white;
     border: 1px solid lightgrey;
+    margin: 0px;
 }
 
 /*fetter Text*/
@@ -342,6 +351,10 @@ hr {
     color: inherit;
     text-decoration: none;
 }
+
+
+   
+    
 
     
 
