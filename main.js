@@ -161,22 +161,26 @@ function updateFriendRequests(requests) {
 
 // Event-Listener für den "Accept" und "Reject" Button
 function handleRequest(username, action) {
-    const endpoint = `${backendUrl}/friend/${username}/${action}`;
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4) {
             if (xmlhttp.status === 204) {
-                alert(`Anfrage ${action === "accept" ? "angenommen" : "abgelehnt"}!`);
+                alert(`Anfrage ${action === "accepted" ? "angenommen" : "abgelehnt"}!`);
                 loadFriends(); // Aktualisiere die Listen nach der Aktion
             } else {
                 alert("Fehler beim Verarbeiten der Anfrage.");
             }
         }
     };
-    xmlhttp.open("POST", endpoint, true);
+    xmlhttp.open("POST", `${backendUrl}/friend`, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
     xmlhttp.setRequestHeader("Authorization", `Bearer ${token}`);
-    xmlhttp.send();
+
+    // JSON-Payload mit `username` und `status` senden
+    const payload = JSON.stringify({ username: username, status: action });
+    xmlhttp.send(payload);
 }
+
 
 
 
