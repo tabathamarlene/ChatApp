@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", loadUsers);
 
 
 //ab hier Aufgabe b2
-// Funktion, um die Freundesliste zu aktualisieren
+// Funktion, um die Freundesliste zu laden und zu aktualisieren
 function loadFriends() {
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -101,10 +101,20 @@ function loadFriends() {
             const friendRequests = data.filter(friend => friend.status === "requested");
 
             // Freundesliste aktualisieren
-            updateFriendList(acceptedFriends);
+            const friendListContainer = document.querySelector(".friendlist ul");
+            friendListContainer.innerHTML = ""; // Alte Liste löschen
 
-            // Freundschaftsanfragen aktualisieren
-            updateFriendRequests(friendRequests);
+            acceptedFriends.forEach(friend => {
+                const li = document.createElement("li");
+                const link = document.createElement("a");
+                link.classList.add("listitems");
+                link.setAttribute("href", `chat.html?friend=${friend.username}`);
+                link.textContent = friend.username;
+                li.appendChild(link);
+                friendListContainer.appendChild(li);
+            });
+
+            console.log("Freundesliste aktualisiert:", acceptedFriends);
         }
     };
     xmlhttp.open("GET", `${backendUrl}/friend`, true);
@@ -112,84 +122,9 @@ function loadFriends() {
     xmlhttp.send();
 }
 
-// Funktion, um Freundschaftsanfragen zu aktualisieren
-function updateFriendList(friends) {
-    const friendListContainer = document.querySelector(".friendlist ul");
-    friendListContainer.innerHTML = ""; // Alte Liste löschen
-
-    friends.forEach(friend => {
-        const li = document.createElement("li");
-        const link = document.createElement("a");
-        link.classList.add("listitems");
-        link.setAttribute("href", `chat.html?friend=${friend.username}`);
-        link.textContent = friend.username;
-        li.appendChild(link);
-        friendListContainer.appendChild(li);
-    });
-
-    console.log("Freundesliste aktualisiert:", friends);
-}
-
-// Freundschaftsanfragen aktualisieren
-function updateFriendRequests(requests) {
-    const requestsContainer = document.querySelector("ol");
-    requestsContainer.innerHTML = ""; // Alte Anfragen löschen
-
-    requests.forEach(request => {
-        const li = document.createElement("li");
-        li.classList.add("listitems");
-        li.textContent = `Friend Request from ${request.username}`;
-
-        // Buttons für "Accept" und "Reject"
-        const acceptButton = document.createElement("button");
-        acceptButton.classList.add("acceptbutton");
-        acceptButton.textContent = "Accept";
-        acceptButton.addEventListener("click", () => handleRequest(request.username, "accepted"));
-
-        const rejectButton = document.createElement("button");
-        rejectButton.classList.add("rejectbutton");
-        rejectButton.textContent = "Reject";
-        rejectButton.addEventListener("click", () => handleRequest(request.username, "rejected"));
-
-        li.appendChild(acceptButton);
-        li.appendChild(rejectButton);
-        requestsContainer.appendChild(li);
-    });
-
-    console.log("Freundschaftsanfragen aktualisiert:", requests);
-}
-
-// Event-Listener für den "Accept" und "Reject" Button
-function handleRequest(username, action) {
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState === 4) {
-            if (xmlhttp.status === 204) {
-                alert(`Anfrage ${action === "accepted" ? "angenommen" : "abgelehnt"}!`);
-                loadFriends(); // Aktualisiere die Listen nach der Aktion
-            } else {
-                alert("Fehler beim Verarbeiten der Anfrage.");
-            }
-        }
-    };
-    xmlhttp.open("POST", `${backendUrl}/friend`, true);
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.setRequestHeader("Authorization", `Bearer ${token}`);
-
-    // JSON-Payload mit `username` und `status` senden
-    const payload = JSON.stringify({ username: username, status: action });
-    xmlhttp.send(payload);
-}
-
-
-
-
-// Starte die periodische Aktualisierung alle 1 Sekunde
 window.setInterval(() => {
     loadFriends();
 }, 1000);
-
-// Erster Aufruf, um direkt Daten zu laden
 loadFriends();
 
 
