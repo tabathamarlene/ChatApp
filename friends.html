@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
+    
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friends</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
     <div class="content">
@@ -15,10 +19,9 @@
 
         <hr>
 
-        <!-- Dynamisch aktualisierbare Freundesliste -->
         <div class="friendlist">
             <ul>
-                <!-- Dynamisch per JavaScript befüllt -->
+            
             </ul>
         </div>
 
@@ -26,27 +29,17 @@
 
         <h2 class="left">New Requests</h2>
         <ol>
-            <!-- Dynamisch per JavaScript befüllt -->
         </ol>
-
         <hr>
-
-        <!-- Formular zur Eingabe eines neuen Freundes -->
         <form>
             <div class="bar">
-                <input 
-                    class="actionbar" 
-                    placeholder="Add Friend to List" 
-                    name="friendRequestName" 
-                    id="friend-request-name" 
-                    list="friend-selector">
-                <datalist id="friend-selector"> 
-                    <!-- Dynamisch per JavaScript befüllt -->
+                <input class="actionbar" placeholder="Add Friend to List" name="friendRequestName" id="friend-request-name" list="friend-selector">
+                <datalist id="friend-selector">
                 </datalist>
-                <button type="button" class="greybuttonroundaction">Add</button>
+                <button type="button" id="add-friend-button" class="greybuttonroundaction">Add</button>
             </div>
         </form>
     </div>
-    <script src="main.js"></script> 
+    <script src="friends.js"></script>
 </body>
 </html>
