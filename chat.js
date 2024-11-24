@@ -5,7 +5,7 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0Ijox
 
 // Chat Partner aus der URL holen
 function getChatPartner() {
-    return new URLSearchParams(window.location.search).get('friend') || "Unknown";
+    return new URLSearchParams(window.location.search).get('friend') || "Unbekannt";
 }
 
 // Nachrichten laden
