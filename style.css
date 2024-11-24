@@ -87,7 +87,7 @@ p.pcenter {
 }
 
 /* Links */
-a.center, a.logout, a.text, a.listitems {
+a.center, a.logout, a.text, a.listitems, a.chatitems {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 1em;
@@ -104,7 +104,7 @@ a.logout, a.text {
     color: blue;
 }
 
-a.logout:hover, a.text:hover, a.listitems:hover, a.center:hover {
+a.logout:hover, a.text:hover, a.listitems:hover, a.center:hover, a.chatitems:hover {
     text-decoration: underline;
 }
 
@@ -115,7 +115,9 @@ a.logout:hover {
 a.listitems {
     color: black;
 }
-
+a.chatitems {
+    color: black;
+}
 /* Spezielle Links */
 a.special {
     color: red; /* Immer rot */
@@ -239,6 +241,29 @@ input {
     padding-left: 12px;
     padding-right: 12px;
 }
+.chat {
+    width: 900px;
+}
+
+.chat {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid lightgrey;
+}
+
+.chat ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat li {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-left: 12px;
+    padding-right: 12px;
+}
 
 li {
     font-family: 'Jost', sans-serif;
@@ -299,7 +324,7 @@ hr {
 
 /* Responsive Design */
 @media only screen and (max-width: 1024px) {
-    body, .friends, .friendlist, .actionbar, hr, .content, .form, .formcontent, fieldset {
+    body, .friends, .friendlist, .actionbar, hr, .content, .form, .formcontent, fieldset, .chat {
         width: 95%;
         display: block;
     }
@@ -352,6 +377,10 @@ hr {
     text-decoration: none;
 }
 
+
+.error {
+    border: 2px solid red;
+}
 
 
    

@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="content">
-        
         <h1 class="left">Friends</h1>
 
         <a class="logout" href="Logout.html">&lt; Logout</a> |  
@@ -16,21 +15,10 @@
 
         <hr>
 
+        <!-- Dynamisch aktualisierbare Freundesliste -->
         <div class="friendlist">
             <ul>
-                    <li><a class="listitems" href="Login.html">Tom</a>
-                        <span class= "pnumber">3</span>
-                    </li>
-
-                    <li><a class="listitems" href="Login.html">Marvin</a>
-                        <span class= "pnumber">1</span>
-                    </li>
-
-                    <li><a class="listitems" href="Login.html">Tick</a>
-                    </li>
-                    
-                    <li><a class="listitems" href="Login.html">Trick</a>
-                    </li>
+                <!-- Dynamisch per JavaScript befüllt -->
             </ul>
         </div>
 
@@ -38,23 +26,23 @@
 
         <h2 class="left">New Requests</h2>
         <ol>
-            <li class="listitems">Friend Request from <span class="bold">Track</span>
-                <button class="acceptbutton">Accept</button> 
-                <button class="rejectbutton">Reject</button>
-            </li>
+            <!-- Dynamisch per JavaScript befüllt -->
         </ol>
 
         <hr>
 
+        <!-- Formular zur Eingabe eines neuen Freundes -->
         <form>
             <div class="bar">
-                <input class="actionbar" placeholder="Add Friend to List" name="friendRequestName" id="friend-request-name" list="friend-selector">
-                 <datalist id="friend-selector"> 
-                    <option>Tom</option> 
-                    <option>Jerry</option>
-                    <option>Franz</option>
-                    <!-- weitere Einträge -->
-                    </datalist>
+                <input 
+                    class="actionbar" 
+                    placeholder="Add Friend to List" 
+                    name="friendRequestName" 
+                    id="friend-request-name" 
+                    list="friend-selector">
+                <datalist id="friend-selector"> 
+                    <!-- Dynamisch per JavaScript befüllt -->
+                </datalist>
                 <button type="button" class="greybuttonroundaction">Add</button>
             </div>
         </form>
