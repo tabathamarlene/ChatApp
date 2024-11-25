@@ -5,7 +5,20 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0Ijox
 
 // Chat Partner aus der URL holen
 function getChatPartner() {
-    return new URLSearchParams(window.location.search).get('friend') || "Unbekannt";
+    const url = new URL(window.location.href); 
+    const queryParams = url.searchParams; 
+    return queryParams.get("friend") || "Unknown";
+}
+
+// Nachrichten aktualisieren
+function updateMessages(messages) {
+    const messageList = document.querySelector('.message-list');
+    messageList.innerHTML = "";
+    messages.forEach(msg => {
+        const li = document.createElement('li');
+        li.textContent = `${msg.from}: ${msg.msg}`;
+        messageList.appendChild(li);
+    });
 }
 
 // Nachrichten laden
@@ -23,17 +36,6 @@ function loadMessages() {
     xmlhttp.send();
 }
 
-// Nachrichten aktualisieren
-function updateMessages(messages) {
-    const messageList = document.querySelector('.message-list');
-    messageList.innerHTML = "";
-    messages.forEach(msg => {
-        const li = document.createElement('li');
-        li.textContent = `${msg.from}: ${msg.msg}`;
-        messageList.appendChild(li);
-    });
-}
-
 // Nachrichten senden
 function sendMessage(content) {
     const chatPartner = getChatPartner();
@@ -45,7 +47,7 @@ function sendMessage(content) {
     loadMessages();
 }
 
-// Laden der Nachrichten einmal pro Sek. und EventListener der kein sumbit Event ist
+// Laden der Nachrichten einmal pro Sek. und EventListener (der kein Sumbit-Button ist)
 if (document.querySelector('.chat-area')) {
     const chatPartner = getChatPartner();
     document.querySelector('h1.left').textContent = `Chat with ${chatPartner}`;
