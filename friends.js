@@ -53,7 +53,7 @@ function sendFriendRequest(username) {
      //Validierung: Ist der Nutzername in der datalist enthalten?
     const validUsernames = Array.from(document.querySelectorAll("#friend-selector option")).map(opt => opt.value);
     if (!validUsernames.includes(username)) {
-        alert("Ungültiger Nutzername oder Nutzer ist bereits vorhanden!");
+        alert("Ungültiger Nutzername oder Nutzer ist bereits Freund!");
         return;
     }
 
