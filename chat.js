@@ -17,19 +17,17 @@ function updateMessages(messages) {
     messageList.innerHTML = "";
     messages.forEach(msg => {
         const li = document.createElement('li');
-        li.classList.add('message-item'); // Beibehaltung des ursprünglichen Designs
+        li.classList.add('message-item');
 
         // Zeitstempel
-        const timestamp = new Date(msg.time * 1000); // Unix-Zeit in Millisekunden
+        const timestamp = new Date(msg.time * 1000);
         const formattedTime = timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const timeText = document.createElement('span');
         timeText.textContent = `${formattedTime} `;
-        timeText.classList.add('message-time'); // Klasse für Styling der Zeit
+        timeText.classList.add('message-time'); 
 
-        // Nachrichtentext
         const messageContent = document.createTextNode(`${msg.from}: ${msg.msg}`);
-
-        // Zeit und Nachricht kombinieren
+        
         li.appendChild(timeText);
         li.appendChild(messageContent);
         messageList.appendChild(li);
