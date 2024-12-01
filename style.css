@@ -384,7 +384,18 @@ hr {
 
 
    
-    
 
-    
-
+    /*Uhrzeit*/
+    .message-time {
+        color: gray;       /* Zeitstempel in grau */
+        font-size: inherit; /* Gleiche Schriftgröße wie die Nachricht */
+        margin-right: 5px; /* Abstand zwischen Zeit und Nachricht */
+    }
+    .message-list {
+        list-style-type: none; /* Entfernt die Aufzählungspunkte */
+        padding: 0;           /* Entfernt standardmäßige Einrückung */
+        margin: 0;            /* Entfernt standardmäßige Abstände */
+    }
+    .message-list li {
+        margin-bottom: 5px; /* Optional: Abstand zwischen den Nachrichten */
+    }

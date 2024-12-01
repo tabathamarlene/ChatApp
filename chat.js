@@ -14,14 +14,26 @@ function getChatPartner() {
 // Nachrichten aktualisieren
 function updateMessages(messages) {
     const messageList = document.querySelector('.message-list');
-    console.log(`Anzahl der Nachrichten: ${messages.length}`);
     messageList.innerHTML = "";
     messages.forEach(msg => {
         const li = document.createElement('li');
-        li.textContent = `${msg.from}: ${msg.msg}`;
+        li.classList.add('message-item'); // Beibehaltung des ursprünglichen Designs
+
+        // Zeitstempel
+        const timestamp = new Date(msg.time * 1000); // Unix-Zeit in Millisekunden
+        const formattedTime = timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const timeText = document.createElement('span');
+        timeText.textContent = `${formattedTime} `;
+        timeText.classList.add('message-time'); // Klasse für Styling der Zeit
+
+        // Nachrichtentext
+        const messageContent = document.createTextNode(`${msg.from}: ${msg.msg}`);
+
+        // Zeit und Nachricht kombinieren
+        li.appendChild(timeText);
+        li.appendChild(messageContent);
         messageList.appendChild(li);
     });
-    console.log("Nachrichtenliste wurde aktualisiert.");
 }
 
 // Nachrichten laden
