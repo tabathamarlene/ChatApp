@@ -270,18 +270,28 @@ li {
     font-weight: 400;
     font-size: 1em;
     margin: 15px 0;
+    
+    
 }
 
 /* Zählerbereich */
-.requestnumber {
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    margin: 15px 25px 15px 0;
-    height: 21px;
+.friend-item {
+    justify-content: space-between; 
+    align-items: center; 
+    
+    
 }
 
-span.pnumber {
+.friend-name {
+    font-size: 1em;
+    font-weight: bold;
+    color: black; /* Farbe für den Namen */
+    margin-right: 700px;
+}
+
+
+.pnumber {
+    height: 21px;
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 1em;

@@ -98,7 +98,7 @@ function loadFriends() {
 
             // Daten analysieren
             const acceptedFriends = data.filter(friend => friend.status === "accepted");
-            const friendRequests = data.filter(friend => friend.status === "requested");
+            const requests = data.filter(friend => friend.status === "requested");
 
             // Freundesliste aktualisieren
             const friendListContainer = document.querySelector(".friendlist ul");
@@ -106,15 +106,68 @@ function loadFriends() {
 
             acceptedFriends.forEach(friend => {
                 const li = document.createElement("li");
+                
+
+                // Link für den Freund
                 const link = document.createElement("a");
-                link.classList.add("listitems");
+                link.classList.add( "listitems");
                 link.setAttribute("href", `chat.html?friend=${friend.username}`);
                 link.textContent = friend.username;
                 li.appendChild(link);
+                
+
+                // Span für ungelesene Nachrichten
+                if (friend.unread && friend.unread > 0) {
+                    const unreadP = document.createElement("p");
+                    unreadP.classList.add("pnumber");
+                    unreadP.textContent = ` ${friend.unread}`;
+                    li.appendChild(unreadP);
+                }
+
+                
                 friendListContainer.appendChild(li);
             });
 
             console.log("Freundesliste aktualisiert:", acceptedFriends);
+
+            
+            //Freundschaftsanfragen aktualisieren
+            const requestsContainer = document.querySelector("ol");
+            requestsContainer.innerHTML = ""; // Alte Anfragen löschen
+
+
+            requests.forEach(request => {
+                const li = document.createElement("li");
+                li.classList.add("listitems");
+
+                const textBefore = document.createTextNode("Friend Request from ");
+
+                // Span-Element für den Benutzernamen
+                const usernameSpan = document.createElement("span");
+                usernameSpan.textContent = request.username;
+                usernameSpan.classList.add("bold");
+
+            
+                li.appendChild(textBefore);
+                li.appendChild(usernameSpan);
+        
+                // Buttons für "Accept" und "Reject"
+                const acceptButton = document.createElement("button");
+                acceptButton.classList.add("acceptbutton");
+                acceptButton.textContent = "Accept";
+                
+        
+                const rejectButton = document.createElement("button");
+                rejectButton.classList.add("rejectbutton");
+                rejectButton.textContent = "Reject";
+                
+        
+                li.appendChild(acceptButton);
+                li.appendChild(rejectButton);
+                requestsContainer.appendChild(li);
+            });
+        
+            console.log("Freundschaftsanfragen aktualisiert:", requests);
         }
     };
     xmlhttp.open("GET", `${backendUrl}/friend`, true);
@@ -123,24 +176,8 @@ function loadFriends() {
 }
 
 window.setInterval(() => {
-    loadFriends();
-}, 1000);
+   loadFriends();
+}, 
+1000
+);
 loadFriends();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
