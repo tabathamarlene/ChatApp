@@ -1,12 +1,14 @@
 <?php
 require("start.php");
 
+// Überprüfen, ob der Nutzer angemeldet ist
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
 }
 
 try {
+    // Freunde und Freundschaftsanfragen laden
     $friends = $service->loadFriends();
     $acceptedFriends = array_filter($friends, fn($friend) => $friend->getStatus() === 'accepted');
     $pendingRequests = array_filter($friends, fn($friend) => $friend->getStatus() === 'requested');
@@ -28,14 +30,17 @@ try {
         <a class="logout" href="logout.php">&lt; Logout</a>
         <hr>
         
+        <!-- Freundesliste -->
         <div class="friendlist">
             <h2 class="left">Your Friends</h2>
             <ul>
                 <?php if (!empty($acceptedFriends)): ?>
                     <?php foreach ($acceptedFriends as $friend): ?>
                         <li>
-                            <?= htmlspecialchars($friend->getUsername()) ?>
-                            <span class="message-time">Last active: <?= htmlspecialchars($friend->getLastActive()) ?></span>
+                            <!-- Link zum Chat -->
+                            <a href="chat.php?friend=<?= urlencode($friend->getUsername()) ?>">
+                                <?= htmlspecialchars($friend->getUsername()) ?>
+                            </a>
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -44,6 +49,7 @@ try {
             </ul>
         </div>
         
+        <!-- Freundschaftsanfragen -->
         <div class="friend-requests">
             <h2 class="left">Friend Requests</h2>
             <ul>
