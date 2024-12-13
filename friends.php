@@ -26,36 +26,35 @@ try {
 </head>
 <body>
     <div class="content">
-        <h1 class="left">Friends</h1>
+        <h1 class="center">Friends</h1>
         <a class="logout" href="logout.php">&lt; Logout</a>
         <hr>
-        
-        <!-- Freundesliste -->
+
+        <!-- Freundeliste -->
         <div class="friendlist">
             <h2 class="left">Your Friends</h2>
             <ul>
                 <?php if (!empty($acceptedFriends)): ?>
                     <?php foreach ($acceptedFriends as $friend): ?>
-                        <li>
-                            <!-- Link zum Chat -->
-                            <a href="chat.php?friend=<?= urlencode($friend->getUsername()) ?>">
+                        <li class="friend-item">
+                            <a class="chatitems" href="chat.php?friend=<?= urlencode($friend->getUsername()) ?>">
                                 <?= htmlspecialchars($friend->getUsername()) ?>
                             </a>
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>No friends yet.</p>
+                    <p class="pcenter">No friends yet.</p>
                 <?php endif; ?>
             </ul>
         </div>
-        
+
         <!-- Freundschaftsanfragen -->
         <div class="friend-requests">
             <h2 class="left">Friend Requests</h2>
             <ul>
                 <?php if (!empty($pendingRequests)): ?>
                     <?php foreach ($pendingRequests as $request): ?>
-                        <li>
+                        <li class="friend-item">
                             <?= htmlspecialchars($request->getUsername()) ?>
                             <form method="POST" action="process_request.php" style="display: inline;">
                                 <input type="hidden" name="request_id" value="<?= htmlspecialchars($request->getId()) ?>">
@@ -65,7 +64,7 @@ try {
                         </li>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>No pending requests.</p>
+                    <p class="pcenter">No pending requests.</p>
                 <?php endif; ?>
             </ul>
         </div>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-// Chat-Partner überprüfen
+// Chat-Partner prüfen
 if (!isset($_GET['friend']) || empty($_GET['friend'])) {
     die("No chat partner specified.");
 }
@@ -30,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['message'])) {
             "msg" => $messageContent,
             "to" => $chatPartner
         ]);
-        // Seite neu laden, um die gesendete Nachricht anzuzeigen
         header("Location: chat.php?friend=" . urlencode($chatPartner));
         exit();
     }
@@ -41,31 +40,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['message'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with <?= $chatPartner ?></title>
+    <title>Chat with <?= htmlspecialchars($chatPartner) ?></title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="content">
         <h1 class="center">Chat with <?= htmlspecialchars($chatPartner) ?></h1>
-        <a href="friends.php">&lt; Back to Friends</a>
+        <div class="chat-controls">
+            <a href="friends.php" class="logout">&lt; Back</a> |
+            <a href="remove_friend.php?friend=<?= urlencode($chatPartner) ?>" class="special">Remove Friend</a>
+        </div>
         <hr>
-        <!-- Nachrichten anzeigen -->
-        <ul class="message-list">
-            <?php if (!empty($messages)): ?>
-                <?php foreach ($messages as $message): ?>
-                    <li>
-                        <strong><?= htmlspecialchars($message->from) ?>:</strong>
-                        <?= htmlspecialchars($message->msg) ?>
-                    </li>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>No messages yet.</p>
-            <?php endif; ?>
-        </ul>
-        <hr>
-        <!-- Nachricht senden -->
-        <form method="POST" action="">
-            <textarea name="message" placeholder="Type your message here..." required></textarea>
+        <div class="chat">
+            <ul class="message-list">
+                <?php if (!empty($messages)): ?>
+                    <?php for ($i = 0; $i < count($messages); $i++): ?>
+                        <li class="chat-item">
+                            <span class="message-time"><?= date("H:i", intval($messages[$i]->time / 1000)) ?></span>
+                            <div class="message-content">
+                                <span class="bold"><?= htmlspecialchars($messages[$i]->from) ?>:</span>
+                                <?= htmlspecialchars($messages[$i]->msg) ?>
+                            </div>
+                        </li>
+                    <?php endfor; ?>
+                <?php else: ?>
+                    <p>No messages yet.</p>
+                <?php endif; ?>
+            </ul>
+        </div>
+        <form method="POST" action="" class="form">
+            <input type="text" name="message" class="chat-input" placeholder="New Message" required>
             <button type="submit" class="bluebutton">Send</button>
         </form>
     </div>
